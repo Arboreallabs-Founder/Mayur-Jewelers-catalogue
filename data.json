@@ -2,35 +2,5 @@
   "settings": {
     "theme": "bridal"
   },
-  "products": [
-    {
-      "id": "1779055472095",
-      "name": "the barmonk",
-      "description": "br snsn",
-      "price": "1221",
-      "images": [
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779055472095_0.jpg"
-      ]
-    },
-    {
-      "id": "1779054626846",
-      "name": "no way",
-      "description": "no way to do do do do",
-      "price": "200",
-      "images": [
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054626846_0.jpg"
-      ]
-    },
-    {
-      "id": "1779054558494",
-      "name": "whow",
-      "description": "woahwowhwh",
-      "price": "100",
-      "images": [
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_0.png",
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_1.png",
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_2.png"
-      ]
-    }
-  ]
+  "products": []
 }
