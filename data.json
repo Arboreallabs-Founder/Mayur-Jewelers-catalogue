@@ -2,5 +2,17 @@
   "settings": {
     "theme": "oceanic"
   },
-  "products": []
+  "products": [
+    {
+      "id": "1779054558494",
+      "name": "whow",
+      "description": "woahwowhwh",
+      "price": "100",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_1.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054558494_2.png"
+      ]
+    }
+  ]
 }
