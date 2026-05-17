@@ -1,8 +1,17 @@
 {
   "settings": {
-    "theme": "oceanic"
+    "theme": "bridal"
   },
   "products": [
+    {
+      "id": "1779054626846",
+      "name": "no way",
+      "description": "no way to do do do do",
+      "price": "200",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779054626846_0.jpg"
+      ]
+    },
     {
       "id": "1779054558494",
       "name": "whow",
