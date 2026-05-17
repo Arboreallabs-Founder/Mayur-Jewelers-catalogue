@@ -4,6 +4,16 @@
   },
   "products": [
     {
+      "id": "1779056934381",
+      "name": "temple",
+      "description": "dd",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779056934381_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779056934381_1.png"
+      ]
+    },
+    {
       "id": "1779056759258",
       "name": "Noor Mandala Stud Earrings",
       "description": "Delicately crafted with intricate filigree detailing, the Noor Mandala Stud Earrings blend timeless elegance with contemporary luxury. Featuring a floral mandala-inspired silhouette in radiant gold and silver tones, these statement studs are designed to capture light beautifully from every angle.\n\nThe lace-like texture and soft ivory accents create a refined aesthetic that pairs effortlessly with festive wear, bridal ensembles, and elegant evening looks. Lightweight yet striking, these earrings bring sophistication and grace to every occasion.",
