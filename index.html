@@ -388,58 +388,32 @@
         .collage.single .img-cell { justify-content: center; }
         .collage.single .img-wrap { padding: 0; }
 
-        /* 2 images — artistic diagonal: large hero top-left, accent bottom-right */
-        .collage-2 { position: relative; }
-        .collage-2 .img-cell:nth-child(1) {
-            position: absolute;
-            top: 4%; left: 4%;
-            width: 60%; height: 62%;
-        }
-        .collage-2 .img-cell:nth-child(2) {
-            position: absolute;
-            bottom: 5%; right: 4%;
-            width: 52%; height: 52%;
+        /* 2 images — side by side, hero left wider */
+        .collage-2 {
+            display: grid;
+            grid-template-columns: 58% 42%;
+            grid-template-rows: 100%;
+            gap: 0.25rem;
+            padding: 1.25rem;
         }
 
-        /* 3 images — tall hero left, two staggered right */
-        .collage-3 { position: relative; }
-        .collage-3 .img-cell:nth-child(1) {
-            position: absolute;
-            top: 4%; left: 4%;
-            width: 54%; height: 72%;
+        /* 3 images — tall hero left, two stacked right */
+        .collage-3 {
+            display: grid;
+            grid-template-columns: 56% 44%;
+            grid-template-rows: 50% 50%;
+            gap: 0.25rem;
+            padding: 1.25rem;
         }
-        .collage-3 .img-cell:nth-child(2) {
-            position: absolute;
-            top: 3%; right: 3%;
-            width: 38%; height: 44%;
-        }
-        .collage-3 .img-cell:nth-child(3) {
-            position: absolute;
-            bottom: 3%; right: 3%;
-            width: 38%; height: 44%;
-        }
+        .collage-3 .img-cell:nth-child(1) { grid-row: 1 / 3; }
 
-        /* 4 images — editorial quad: big top-left, small top-right, small bottom-left, medium bottom-right */
-        .collage-4 { position: relative; }
-        .collage-4 .img-cell:nth-child(1) {
-            position: absolute;
-            top: 3%; left: 3%;
-            width: 55%; height: 50%;
-        }
-        .collage-4 .img-cell:nth-child(2) {
-            position: absolute;
-            top: 3%; right: 3%;
-            width: 38%; height: 40%;
-        }
-        .collage-4 .img-cell:nth-child(3) {
-            position: absolute;
-            bottom: 3%; left: 3%;
-            width: 38%; height: 42%;
-        }
-        .collage-4 .img-cell:nth-child(4) {
-            position: absolute;
-            bottom: 3%; right: 3%;
-            width: 52%; height: 48%;
+        /* 4 images — asymmetric 2×2: wider left column, taller top row */
+        .collage-4 {
+            display: grid;
+            grid-template-columns: 56% 44%;
+            grid-template-rows: 54% 46%;
+            gap: 0.25rem;
+            padding: 1.25rem;
         }
 
         /* Lightbox */
@@ -592,9 +566,10 @@
             .img-wrap  { padding: 3%; }
             .img-label { font-size: 0.52rem; padding: 0.25rem 0 0.4rem; }
 
-            /* 2-image diagonal: widen slightly for narrow portrait screens */
-            .collage-2 .img-cell:nth-child(1) { width: 65%; height: 58%; top: 8%; left: 3%; }
-            .collage-2 .img-cell:nth-child(2) { width: 57%; height: 50%; bottom: 4%; right: 3%; }
+            /* On small screens stack 2-image layout vertically */
+            .collage-2 { grid-template-columns: 100%; grid-template-rows: 50% 50%; }
+            /* 3-image: shrink gap */
+            .collage-3, .collage-4 { gap: 0.15rem; padding: 0.75rem; }
         }
     </style>
 </head>
@@ -769,10 +744,13 @@
                 String(idx + 1).padStart(2, '0') + ' — ' + String(totalSlides).padStart(2, '0');
         }
 
-        function preloadImages(products) {
-            // Warm the browser cache for every product image as soon as data arrives.
-            // Images are ~60 KB each so even 30 products is only ~2 MB in the background.
-            products.forEach(p => (p.images || []).forEach(url => { new Image().src = url; }));
+        function prefetchAhead(activeIdx) {
+            // Prefetch images for the next 2 product slides so they're cached before the user swipes.
+            // activeIdx 0 = cover slide; product slides start at 1.
+            for (let offset = 0; offset <= 2; offset++) {
+                const p = allProducts[activeIdx - 1 + offset];
+                if (p) (p.images || []).forEach(url => { new Image().src = url; });
+            }
         }
 
         function renderSlides(products) {
@@ -828,8 +806,8 @@
                 grabCursor: true,
                 keyboard: { enabled: true },
                 on: {
-                    init: s => updateHUD(s.activeIndex),
-                    slideChange: s => updateHUD(s.activeIndex)
+                    init: s => { updateHUD(s.activeIndex); prefetchAhead(s.activeIndex); },
+                    slideChange: s => { updateHUD(s.activeIndex); prefetchAhead(s.activeIndex); }
                 }
             });
         }
@@ -846,7 +824,6 @@
                 const data = await res.json();
                 applyTheme(data.settings?.theme || 'minimalist');
                 allProducts = Array.isArray(data.products) ? data.products : [];
-                preloadImages(allProducts);
                 renderSlides(allProducts);
                 setTimeout(() => {
                     const el = document.getElementById('loader');
