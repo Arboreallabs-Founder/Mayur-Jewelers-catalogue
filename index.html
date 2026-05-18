@@ -769,6 +769,12 @@
                 String(idx + 1).padStart(2, '0') + ' — ' + String(totalSlides).padStart(2, '0');
         }
 
+        function preloadImages(products) {
+            // Warm the browser cache for every product image as soon as data arrives.
+            // Images are ~60 KB each so even 30 products is only ~2 MB in the background.
+            products.forEach(p => (p.images || []).forEach(url => { new Image().src = url; }));
+        }
+
         function renderSlides(products) {
             const wrapper = document.getElementById('catalogWrapper');
             if (!products.length) {
@@ -840,6 +846,7 @@
                 const data = await res.json();
                 applyTheme(data.settings?.theme || 'minimalist');
                 allProducts = Array.isArray(data.products) ? data.products : [];
+                preloadImages(allProducts);
                 renderSlides(allProducts);
                 setTimeout(() => {
                     const el = document.getElementById('loader');
