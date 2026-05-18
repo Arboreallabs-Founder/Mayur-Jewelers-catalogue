@@ -4,6 +4,17 @@
   },
   "products": [
     {
+      "id": "1779144745324",
+      "name": "Celeste Bloom Diamond Earrings",
+      "description": "Gracefully designed with a floral-inspired silhouette, these rose gold-tone earrings shimmer with brilliant pear-cut and pavé-set stones that radiate refined elegance. The airy openwork pattern adds a delicate contemporary touch, while the cascading sparkle creates a statement perfect for evening glamour, weddings, and special occasions. Feminine, luminous, and effortlessly sophisticated, these earrings are crafted to captivate from every angle.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779144745324_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779144745324_1.jpg",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779144745324_2.jpg"
+      ]
+    },
+    {
       "id": "1779123179266",
       "name": "Ruby Weave Heritage Bangles",
       "description": "Gracefully crafted with intricate woven patterns and delicate floral detailing, these heritage-inspired bangles embody timeless Indian elegance. Accented with radiant ruby-toned stones and fine textured artistry, the design strikes the perfect balance between traditional charm and refined sophistication. Ideal for festive occasions, weddings, and heirloom styling, these bangles add a rich regal touch to every ensemble.",
