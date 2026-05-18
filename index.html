@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mayur Jewelers — Collection</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg: #f7f3ee;
+            --text: #1a1208;
+            --accent: #b8860b;
+            --muted: #8a7968;
+            --card: #ffffff;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--sans);
+            overflow: hidden;
+            height: 100vh;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        .swiper {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: stretch;
+        }
+
+        /* Fixed chrome */
+        .brand-mark {
+            position: fixed;
+            top: 1.75rem;
+            left: 2rem;
+            z-index: 40;
+            font-family: var(--serif);
+            font-size: 1rem;
+            letter-spacing: 0.25em;
+            font-weight: 400;
+            color: var(--text);
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        .search-bar {
+            position: fixed;
+            top: 1.25rem;
+            right: 2rem;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 2rem;
+            padding: 0.5rem 1.1rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .search-bar:focus-within {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            background: none;
+            border: none;
+            outline: none;
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            width: 150px;
+            color: var(--text);
+        }
+
+        .search-bar input::placeholder {
+            color: var(--muted);
+        }
+
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            color: var(--text);
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.95);
+            transform: translateY(-50%) scale(1.06);
+        }
+
+        .nav-prev {
+            left: 1.5rem;
+        }
+
+        .nav-next {
+            right: 1.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .nav-arrow {
+                display: none;
+            }
+        }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 1.5px;
+            background: var(--accent);
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 40;
+        }
+
+        .page-counter {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 40;
+            font-family: var(--serif);
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        /* Cover slide */
+        .cover-slide {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .cover-grid-lines {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            pointer-events: none;
+        }
+
+        .cover-grid-lines span {
+            border-right: 1px solid var(--text);
+            opacity: 0.03;
+        }
+
+        .cover-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .cover-eyebrow {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+        }
+
+        .cover-title {
+            font-family: var(--serif);
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            font-weight: 300;
+            line-height: 0.95;
+            letter-spacing: 0.03em;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .cover-subtitle {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            color: var(--muted);
+            margin-bottom: 3.5rem;
+        }
+
+        .cover-divider {
+            width: 50px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto 3.5rem;
+        }
+
+        .cover-cta {
+            font-family: var(--sans);
+            font-size: 0.68rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        /* Product slide */
+        .product-slide {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 55% 45%;
+            grid-template-rows: 100%;  /* explicit row height so child collage grids have a definite height to divide with 1fr */
+        }
+
+        @media (max-width: 768px) {
+            .product-slide {
+                grid-template-columns: 1fr;
+                grid-template-rows: 55% 45%;   /* already explicit on mobile */
+            }
+        }
+
+        .image-panel {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg);   /* page background shows through transparent PNGs */
+        }
+
+        .info-panel {
+            padding: 5rem 4.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1100px) {
+            .info-panel {
+                padding: 3rem 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .info-panel {
+                padding: 2rem 1.75rem;
+            }
+        }
+
+        .item-number {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-name {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 1.75rem;
+        }
+
+        .product-rule {
+            width: 36px;
+            height: 1px;
+            background: var(--accent);
+            margin-bottom: 1.75rem;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            line-height: 1.85;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            max-width: 360px;
+        }
+
+        .product-price {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        .corner-watermark {
+            position: absolute;
+            bottom: -1rem;
+            right: 1.5rem;
+            font-family: var(--serif);
+            font-size: 9rem;
+            font-weight: 300;
+            color: rgba(0, 0, 0, 0.035);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* ── Image collage system ─────────────────────────────
+           All images use object-fit:contain so aspect ratios
+           are always respected — no cropping, no black bars.
+           Each image sits inside a padded .img-cell with a
+           small label beneath it, matching editorial catalogues.
+        ──────────────────────────────────────────────────── */
+
+        .collage { width: 100%; height: 100%; }
+
+        /* Reusable cell: image area + label row */
+        .img-cell {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+            min-width: 0;
+        }
+
+        .img-wrap {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+            overflow: hidden;
+        }
+
+        .img-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.45s ease;
+        }
+        .img-wrap img:hover { transform: scale(1.025); }
+
+        .img-label {
+            flex-shrink: 0;
+            text-align: center;
+            font-family: var(--sans);
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0.4rem 0 0.8rem;
+        }
+
+        /* Single image — extra breathing room */
+        .collage.single { display: flex; align-items: stretch; padding: 3rem; }
+        .collage.single .img-cell { justify-content: center; }
+        .collage.single .img-wrap { padding: 0; }
+
+        /* 2 images — artistic diagonal: large hero top-left, accent bottom-right */
+        .collage-2 { position: relative; }
+        .collage-2 .img-cell:nth-child(1) {
+            position: absolute;
+            top: 4%; left: 4%;
+            width: 60%; height: 62%;
+        }
+        .collage-2 .img-cell:nth-child(2) {
+            position: absolute;
+            bottom: 5%; right: 4%;
+            width: 52%; height: 52%;
+        }
+
+        /* 3 images — tall hero left, two staggered right */
+        .collage-3 { position: relative; }
+        .collage-3 .img-cell:nth-child(1) {
+            position: absolute;
+            top: 4%; left: 4%;
+            width: 54%; height: 72%;
+        }
+        .collage-3 .img-cell:nth-child(2) {
+            position: absolute;
+            top: 3%; right: 3%;
+            width: 38%; height: 44%;
+        }
+        .collage-3 .img-cell:nth-child(3) {
+            position: absolute;
+            bottom: 3%; right: 3%;
+            width: 38%; height: 44%;
+        }
+
+        /* 4 images — editorial quad: big top-left, small top-right, small bottom-left, medium bottom-right */
+        .collage-4 { position: relative; }
+        .collage-4 .img-cell:nth-child(1) {
+            position: absolute;
+            top: 3%; left: 3%;
+            width: 55%; height: 50%;
+        }
+        .collage-4 .img-cell:nth-child(2) {
+            position: absolute;
+            top: 3%; right: 3%;
+            width: 38%; height: 40%;
+        }
+        .collage-4 .img-cell:nth-child(3) {
+            position: absolute;
+            bottom: 3%; left: 3%;
+            width: 38%; height: 42%;
+        }
+        .collage-4 .img-cell:nth-child(4) {
+            position: absolute;
+            bottom: 3%; right: 3%;
+            width: 52%; height: 48%;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #lightbox.open {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        #lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.75rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.75rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        #lightbox-close:hover {
+            color: white;
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-brand {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            letter-spacing: 0.4em;
+            color: var(--text);
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .loader-track {
+            width: 180px;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-fill {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            width: 100%;
+            background: var(--accent);
+            animation: loadpulse 1.4s ease-in-out infinite;
+        }
+
+        @keyframes loadpulse {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        /* Error */
+        #errorState {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: var(--bg);
+            text-align: center;
+            gap: 0.75rem;
+        }
+
+        #errorState.show {
+            display: flex;
+        }
+
+        /* ── Tablet (769px – 1100px): tighten info typography ─────── */
+        @media (max-width: 1100px) {
+            .product-name { font-size: clamp(1.6rem, 2.8vw, 2.6rem); }
+        }
+
+        /* ── Mobile (≤ 768px): compact info panel ─────────────────── */
+        @media (max-width: 768px) {
+            .product-name     { font-size: 1.75rem; margin-bottom: 1rem; }
+            .item-number      { margin-bottom: 0.9rem; }
+            .product-desc     { font-size: 0.82rem; line-height: 1.75; margin-bottom: 1.5rem; }
+            .corner-watermark { font-size: 5.5rem; }
+        }
+
+        /* ── Phone (≤ 640px): full compact mode ───────────────────── */
+        @media (max-width: 640px) {
+            /* Brand name would collide with search bar on narrow screens —
+               it already appears on the cover slide so hiding is safe */
+            .brand-mark { display: none; }
+
+            /* Search bar stretches full width */
+            .search-bar {
+                top: 0.75rem;
+                right: 0.75rem;
+                left: 0.75rem;
+            }
+            .search-bar input { width: 100%; }
+
+            /* Cover slide: smaller eyebrow, pull CTA up */
+            .cover-eyebrow  { font-size: 0.55rem; margin-bottom: 1.75rem; }
+            .cover-subtitle { margin-bottom: 2rem; }
+            .cover-divider  { margin: 0 auto 2rem; }
+
+            /* Info panel vertical rhythm squeezed for 45vh */
+            .info-panel       { padding: 1.25rem 1.25rem 0.75rem; overflow-y: auto; }
+            .item-number      { font-size: 0.7rem; margin-bottom: 0.5rem; }
+            .product-name     { font-size: 1.35rem; margin-bottom: 0.6rem; }
+            .product-rule     { margin-bottom: 0.6rem; }
+            .product-desc     { font-size: 0.74rem; line-height: 1.6; margin-bottom: 0.9rem; }
+            .product-price    { font-size: 1rem; }
+            .corner-watermark { font-size: 3.75rem; bottom: -0.2rem; right: 0.6rem; }
+            .page-counter     { bottom: 0.5rem; font-size: 0.65rem; }
+
+            /* Image cells: tighter inner padding to show more of the image */
+            .img-wrap  { padding: 3%; }
+            .img-label { font-size: 0.52rem; padding: 0.25rem 0 0.4rem; }
+
+            /* 2-image diagonal: widen slightly for narrow portrait screens */
+            .collage-2 .img-cell:nth-child(1) { width: 65%; height: 58%; top: 8%; left: 3%; }
+            .collage-2 .img-cell:nth-child(2) { width: 57%; height: 50%; bottom: 4%; right: 3%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="loader-brand">Mayur Jewelers</div>
+        <div class="loader-track">
+            <div class="loader-fill"></div>
+        </div>
+    </div>
+
+    <div id="errorState">
+        <p id="errorTitle" style="font-family:var(--serif);font-size:2.5rem;font-weight:300">—</p>
+        <p id="errorMessage" style="color:var(--muted);font-size:0.85rem;letter-spacing:0.05em"></p>
+    </div>
+
+    <div class="brand-mark">Mayur Jewelers</div>
+
+    <div class="search-bar">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            style="color:var(--muted);flex-shrink:0">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="text" id="searchCatalog" placeholder="Search collection…" oninput="filterCatalog()">
+    </div>
+
+    <button class="nav-arrow nav-prev" onclick="swiperInstance&&swiperInstance.slidePrev()" aria-label="Previous">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6" />
+        </svg>
+    </button>
+    <button class="nav-arrow nav-next" onclick="swiperInstance&&swiperInstance.slideNext()" aria-label="Next">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6" />
+        </svg>
+    </button>
+
+    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+    <div class="page-counter" id="pageCounter">— / —</div>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper" id="catalogWrapper"></div>
+    </div>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close" onclick="closeLightbox()">&#x2715;</span>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Use the GitHub API (not raw CDN) — Fastly CDN ignores query params so cache-busting fails on raw URLs
+        const DATA_URL = `https://api.github.com/repos/Arboreallabs-Founder/Mayur-Jewelers-catalogue/contents/data.json`;
+
+        const THEMES = {
+            minimalist: { bg: '#f7f3ee', text: '#1a1208', accent: '#b8860b', muted: '#8a7968', card: '#ffffff' },
+            bridal:     { bg: '#fdf6f0', text: '#3d0a1a', accent: '#c0392b', muted: '#9b6b6b', card: '#ffffff' },
+            oceanic:    { bg: '#f0f7f6', text: '#0c3b38', accent: '#1a8a7a', muted: '#5b8a84', card: '#ffffff' },
+            dark:       { bg: '#0e0c0a', text: '#f0e8d8', accent: '#c9a84c', muted: '#7d6e55', card: '#1a1610' },
+            blush:      { bg: '#fdf0f3', text: '#2d1a22', accent: '#d4506a', muted: '#9b7a83', card: '#ffffff' },
+            champagne:  { bg: '#faf6ee', text: '#2a2015', accent: '#c8962a', muted: '#8a7850', card: '#ffffff' },
+            midnight:   { bg: '#0a0e1a', text: '#e8ecf5', accent: '#7888c8', muted: '#5a6080', card: '#111625' },
+            sage:       { bg: '#f0f4f0', text: '#1e2820', accent: '#5a7a5a', muted: '#7a9070', card: '#ffffff' },
+            noir:       { bg: '#111111', text: '#f5f5f5', accent: '#e0e0e0', muted: '#888888', card: '#1a1a1a' },
+        };
+
+        let allProducts = [];
+        let swiperInstance = null;
+        let totalSlides = 1;
+
+        function applyTheme(name) {
+            const t = THEMES[name] || THEMES.minimalist;
+            const r = document.documentElement;
+            r.style.setProperty('--bg', t.bg);
+            r.style.setProperty('--text', t.text);
+            r.style.setProperty('--accent', t.accent);
+            r.style.setProperty('--muted', t.muted);
+            r.style.setProperty('--card', t.card);
+            document.body.style.background = t.bg;
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.add('open');
+        }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+        function escHtml(s) {
+            return String(s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Extract a readable label from an image URL: last path segment, no extension
+        function imgLabel(url) {
+            const raw = url.split('/').pop().split('?')[0].replace(/\.[^.]+$/, '');
+            // Replace underscores/hyphens with spaces, title-case each word
+            return raw.replace(/[_-]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+        }
+
+        function imgCell(src, labelOverride) {
+            const esc   = src.replace(/'/g, "\\'");
+            const label = labelOverride || imgLabel(src);
+            return `<div class="img-cell">
+                <div class="img-wrap">
+                    <img src="${escHtml(src)}" alt="${escHtml(label)}" loading="lazy"
+                         onclick="event.stopPropagation();openLightbox('${esc}')">
+                </div>
+                <div class="img-label">${escHtml(label)}</div>
+            </div>`;
+        }
+
+        function imageCollage(images) {
+            if (!images || images.length === 0) {
+                return `<div class="collage" style="display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:1.1rem">No image</div>`;
+            }
+            const n = images.length;
+            if (n === 1) return `<div class="collage single">${imgCell(images[0], 'View 1')}</div>`;
+            if (n === 2) return `<div class="collage collage-2">
+                ${imgCell(images[0], 'View 1')}${imgCell(images[1], 'View 2')}
+            </div>`;
+            if (n === 3) return `<div class="collage collage-3">
+                ${imgCell(images[0], 'View 1')}
+                ${imgCell(images[1], 'View 2')}
+                ${imgCell(images[2], 'View 3')}
+            </div>`;
+            return `<div class="collage collage-4">
+                ${imgCell(images[0], 'View 1')}${imgCell(images[1], 'View 2')}
+                ${imgCell(images[2], 'View 3')}${imgCell(images[3], 'View 4')}
+            </div>`;
+        }
+
+        function coverSlide() {
+            const lines = Array.from({ length: 12 }, () => '<span></span>').join('');
+            return `<div class="swiper-slide"><div class="cover-slide">
+        <div class="cover-grid-lines">${lines}</div>
+        <div class="cover-content">
+            <div class="cover-eyebrow">Fine Jewellery Collection</div>
+            <div class="cover-title">Mayura<br>Jewelers</div>
+            <div class="cover-divider"></div>
+            <div class="cover-subtitle">Crafted with intention</div>
+            <div class="cover-cta">Swipe to explore &rarr;</div>
+        </div>
+    </div></div>`;
+        }
+
+        function productSlide(product, idx, total) {
+            const price = product.price ? `&#8377;${escHtml(product.price)}` : 'Price on request';
+            const num = String(idx + 1).padStart(2, '0');
+            const tot = String(total).padStart(2, '0');
+            return `<div class="swiper-slide"><div class="product-slide">
+        <div class="image-panel">${imageCollage(product.images)}</div>
+        <div class="info-panel">
+            <div class="item-number">No. ${num} &nbsp;/&nbsp; ${tot}</div>
+            <h2 class="product-name">${escHtml(product.name || '')}</h2>
+            <div class="product-rule"></div>
+            <p class="product-desc">${escHtml(product.description || '')}</p>
+            <div class="product-price">${price}</div>
+            <div class="corner-watermark">${num}</div>
+        </div>
+    </div></div>`;
+        }
+
+        function updateHUD(idx) {
+            const pct = totalSlides > 1 ? (idx / (totalSlides - 1)) * 100 : 0;
+            document.getElementById('progressBar').style.width = pct + '%';
+            document.getElementById('pageCounter').textContent =
+                String(idx + 1).padStart(2, '0') + ' — ' + String(totalSlides).padStart(2, '0');
+        }
+
+        function renderSlides(products) {
+            const wrapper = document.getElementById('catalogWrapper');
+            if (!products.length) {
+                wrapper.innerHTML = `<div class="swiper-slide" style="display:flex;align-items:center;justify-content:center"><span style="font-family:var(--serif);font-size:2rem;font-style:italic;color:var(--muted)">No items found</span></div>`;
+                totalSlides = 1;
+            } else {
+                wrapper.innerHTML = coverSlide() + products.map((p, i) => productSlide(p, i, products.length)).join('');
+                totalSlides = products.length + 1;
+            }
+            initSwiper();
+        }
+
+        // Score how well `str` matches `query`. Returns 0 if no meaningful match.
+        function fuzzyScore(str, query) {
+            str = str.toLowerCase();
+            if (!str) return 0;
+            if (str === query) return 100;
+            if (str.startsWith(query)) return 90;
+            if (str.includes(query)) return 70;
+            // Character-sequence fuzzy: every char of query must appear in order in str
+            let qi = 0;
+            for (let i = 0; i < str.length && qi < query.length; i++) {
+                if (str[i] === query[qi]) qi++;
+            }
+            if (qi < query.length) return 0;            // not all chars found
+            return Math.round(40 * (query.length / str.length));  // shorter gap = higher score
+        }
+
+        function filterCatalog() {
+            const q = document.getElementById('searchCatalog').value.toLowerCase().trim();
+            if (!q) { renderSlides(allProducts); return; }
+
+            const scored = allProducts
+                .map(p => ({
+                    product: p,
+                    score: Math.max(
+                        fuzzyScore(p.name || '', q),
+                        fuzzyScore(p.description || '', q) * 0.4   // name matches rank higher
+                    )
+                }))
+                .filter(x => x.score > 0)
+                .sort((a, b) => b.score - a.score);
+
+            renderSlides(scored.map(x => x.product));
+        }
+
+        function initSwiper() {
+            if (swiperInstance) { swiperInstance.destroy(true, true); }
+            swiperInstance = new Swiper('.mySwiper', {
+                speed: 700,
+                grabCursor: true,
+                keyboard: { enabled: true },
+                on: {
+                    init: s => updateHUD(s.activeIndex),
+                    slideChange: s => updateHUD(s.activeIndex)
+                }
+            });
+        }
+
+        async function init() {
+            try {
+                // Accept: raw+json makes the API return file content directly (no base64 wrapper)
+                const res = await fetch(DATA_URL, {
+                    headers: { 'Accept': 'application/vnd.github.raw+json' },
+                    cache: 'no-store'
+                });
+                if (res.status === 404) throw new Error('NOT_PUBLISHED');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                applyTheme(data.settings?.theme || 'minimalist');
+                allProducts = Array.isArray(data.products) ? data.products : [];
+                renderSlides(allProducts);
+                setTimeout(() => {
+                    const el = document.getElementById('loader');
+                    el.style.opacity = '0';
+                    setTimeout(() => el.style.display = 'none', 600);
+                }, 500);
+            } catch (err) {
+                document.getElementById('loader').style.display = 'none';
+                const e = document.getElementById('errorState');
+                e.classList.add('show');
+                if (err.message === 'NOT_PUBLISHED') {
+                    document.getElementById('errorTitle').textContent = 'Collection Unpublished';
+                    document.getElementById('errorMessage').textContent = 'Publish products from the Admin Dashboard to view the catalogue.';
+                } else {
+                    document.getElementById('errorTitle').textContent = 'Unavailable';
+                    document.getElementById('errorMessage').textContent = 'Unable to load the catalogue. Please try again later.';
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>
