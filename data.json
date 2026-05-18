@@ -4,6 +4,26 @@
   },
   "products": [
     {
+      "id": "1779123179266",
+      "name": "Ruby Weave Heritage Bangles",
+      "description": "Gracefully crafted with intricate woven patterns and delicate floral detailing, these heritage-inspired bangles embody timeless Indian elegance. Accented with radiant ruby-toned stones and fine textured artistry, the design strikes the perfect balance between traditional charm and refined sophistication. Ideal for festive occasions, weddings, and heirloom styling, these bangles add a rich regal touch to every ensemble.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779123179266_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779123179266_1.png"
+      ]
+    },
+    {
+      "id": "1779123049728",
+      "name": "Regal Ruby Filigree Kada",
+      "description": "A celebration of timeless grandeur, this exquisite gold-tone kada features intricate filigree craftsmanship inspired by royal Indian heritage jewelry. The statement centerpiece is adorned with a deep ruby-red stone framed by shimmering accents, while the detailed textured borders add depth and opulence. Designed to make every festive and bridal look unforgettable, this kada blends traditional artistry with luxurious elegance for the modern woman.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779123049728_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779123049728_1.png"
+      ]
+    },
+    {
       "id": "1779122961898",
       "name": "Noor Oval Diamond Mangalsutra",
       "description": "Minimal elegance meets timeless tradition in the Aurelia Halo Mangalsutra. Designed for the modern woman, this refined piece features a radiant oval-cut solitaire-style stone encircled by a delicate halo of shimmering accents, creating a graceful sparkle with every movement.\n\nThe sleek gold-toned chain is beautifully detailed with classic black bead accents and contemporary elongated links, offering a sophisticated fusion of tradition and modern design. Lightweight and versatile, this mangalsutra transitions effortlessly from everyday wear to festive and occasion styling.\n\nIts understated luxury makes it perfect for women who appreciate subtle glamour with meaningful tradition.",
@@ -21,8 +41,8 @@
       "description": "Elegant, delicate, and timeless — the Noorika Diamond Mangalsutra is designed for the modern woman who loves understated luxury. Crafted with a fine gold-toned chain accented by traditional black beads, this graceful piece features a shimmering teardrop-inspired pendant adorned with sparkling stones and delicate dangling details.\n\nThe contemporary silhouette beautifully blends modern sophistication with classic mangalsutra symbolism, making it perfect for both everyday elegance and special occasions. Lightweight and versatile, it pairs effortlessly with ethnic wear, office looks, and contemporary ensembles alike.\n\nA refined statement of love and grace, the Noorika Diamond Mangalsutra is crafted to shine with every moment.",
       "price": "",
       "images": [
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_0.png",
-        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_1.png"
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_1.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_e1779123116605_0.png"
       ]
     },
     {
