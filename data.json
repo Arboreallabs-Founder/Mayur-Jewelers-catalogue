@@ -2,5 +2,16 @@
   "settings": {
     "theme": "bridal"
   },
-  "products": []
+  "products": [
+    {
+      "id": "1779089932040",
+      "name": "Holy earings",
+      "description": "woaw",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779089932040_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779089932040_1.png"
+      ]
+    }
+  ]
 }
