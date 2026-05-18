@@ -1,6 +1,69 @@
 {
   "settings": {
-    "theme": "oceanic"
+    "theme": "noir"
   },
-  "products": []
+  "products": [
+    {
+      "id": "1779122961898",
+      "name": "Noor Oval Diamond Mangalsutra",
+      "description": "Minimal elegance meets timeless tradition in the Aurelia Halo Mangalsutra. Designed for the modern woman, this refined piece features a radiant oval-cut solitaire-style stone encircled by a delicate halo of shimmering accents, creating a graceful sparkle with every movement.\n\nThe sleek gold-toned chain is beautifully detailed with classic black bead accents and contemporary elongated links, offering a sophisticated fusion of tradition and modern design. Lightweight and versatile, this mangalsutra transitions effortlessly from everyday wear to festive and occasion styling.\n\nIts understated luxury makes it perfect for women who appreciate subtle glamour with meaningful tradition.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122961898_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122961898_1.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122961898_2.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122961898_3.png"
+      ]
+    },
+    {
+      "id": "1779122720523",
+      "name": "Nayra Elegance Pendant",
+      "description": "Elegant, delicate, and timeless — the Noorika Diamond Mangalsutra is designed for the modern woman who loves understated luxury. Crafted with a fine gold-toned chain accented by traditional black beads, this graceful piece features a shimmering teardrop-inspired pendant adorned with sparkling stones and delicate dangling details.\n\nThe contemporary silhouette beautifully blends modern sophistication with classic mangalsutra symbolism, making it perfect for both everyday elegance and special occasions. Lightweight and versatile, it pairs effortlessly with ethnic wear, office looks, and contemporary ensembles alike.\n\nA refined statement of love and grace, the Noorika Diamond Mangalsutra is crafted to shine with every moment.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122720523_1.png"
+      ]
+    },
+    {
+      "id": "1779122639482",
+      "name": "Lakshmi Vaibhav Pendant",
+      "description": "Steeped in divine symbolism and traditional artistry, the Lakshmi Vaibhav Pendant is a masterpiece inspired by South Indian temple jewellery. Featuring an intricately sculpted Goddess Lakshmi seated gracefully at the centre, this pendant celebrates prosperity, grace, and timeless heritage.\n\nFramed with ornate peacock motifs, detailed carvings, and ruby-toned accents, the design is elevated with delicate dangling gold beads and a luminous pearl drop that adds movement and regal charm. The antique gold finish enhances its heirloom appeal, making it a striking statement piece for festive and ceremonial wear.\n\nPerfect for pairing with sarees, silk ensembles, and traditional occasion wear, this pendant embodies spiritual elegance and royal craftsmanship.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122639482_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122639482_1.png"
+      ]
+    },
+    {
+      "id": "1779122508188",
+      "name": "Gulnaar Jhumki Earrings",
+      "description": "An ode to timeless Indian artistry, the Gulnaar Jhumki Earrings feature intricate floral craftsmanship blended with a regal antique gold finish. Designed with delicately textured motifs and graceful crescent silhouettes, these statement earrings exude heritage charm and festive elegance.\n\nThe beautifully carved floral details flow into traditional jhumki drops adorned with tiny ghungroo-inspired accents, creating subtle movement and a luxurious traditional appeal. Lightweight yet eye-catching, these earrings are perfect for weddings, festive occasions, and elevated ethnic styling.\n\nWhether paired with a saree, lehenga, or fusion ensemble, the Gulnaar Jhumki Earrings bring effortless royalty to every look.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122508188_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122508188_1.png"
+      ]
+    },
+    {
+      "id": "1779122413323",
+      "name": "Rajsi Viraasat Choker",
+      "description": "A majestic celebration of royal Indian craftsmanship, the Rajsi Viraasat Choker is designed to make a timeless statement. Intricately handcrafted with antique gold textures, radiant ruby-toned stones, and delicate kundan-inspired detailing, this heritage necklace embodies grandeur and elegance.\n\nThe bold crescent silhouette is adorned with ornate filigree artistry and finished with a striking emerald-green teardrop pendant that adds a rich touch of contrast and sophistication. Inspired by traditional royal jewellery, this choker pairs beautifully with sarees, lehengas, and occasion wear ensembles.\n\nPerfect for weddings, festive celebrations, and heirloom styling, the Rajsi Viraasat Choker brings together regal charm and contemporary luxury in one unforgettable piece.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122413323_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122413323_1.png"
+      ]
+    },
+    {
+      "id": "1779122157993",
+      "name": "Ivory Aura Floral Studs",
+      "description": "Delicately crafted with an intricate floral mandala design, the Celestia Bloom Stud Earrings blend timeless elegance with contemporary artistry. Featuring layered ivory enamel detailing, shimmering silver textures, and soft gold accents, these statement studs radiate sophistication from every angle.\n\nInspired by royal Indian motifs and modern minimalism, the earrings are lightweight yet striking — perfect for festive occasions, weddings, evening soirées, or elevating everyday luxury wear. Their intricate lace-like finish catches the light beautifully, adding a subtle sparkle and refined charm.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122157993_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779122157993_1.png"
+      ]
+    }
+  ]
 }
