@@ -1,8 +1,18 @@
 {
   "settings": {
-    "theme": "bridal"
+    "theme": "oceanic"
   },
   "products": [
+    {
+      "id": "1779103234578",
+      "name": "Noor Aaina Mangalsutra Pendant",
+      "description": "Elegant, delicate, and timeless — the Noor Aaina Mangalsutra Pendant is designed for the modern woman who cherishes tradition with a contemporary touch. Crafted in a radiant gold finish, this graceful necklace features a sparkling layered pendant adorned with brilliant stones and delicate teardrop danglers that shimmer beautifully with every movement.\n\nThe subtle black bead detailing preserves the essence of a classic mangalsutra, while the refined silhouette makes it perfect for everyday elegance, festive occasions, and modern bridal styling. Lightweight and effortlessly sophisticated, this piece is a celebration of love, grace, and femininity.",
+      "price": "",
+      "images": [
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779103234578_0.png",
+        "https://raw.githubusercontent.com/Arboreallabs-Founder/Mayur-Jewelers-catalogue/main/images/1779103234578_1.png"
+      ]
+    },
     {
       "id": "1779103106111",
       "name": "Lakshmi Vilasam Temple Pendant",
